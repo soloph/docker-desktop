@@ -28,11 +28,6 @@ RUN apt-get upgrade -y
 # Set the env variable DEBIAN_FRONTEND to noninteractive
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get install -y wget
-RUN wget -O - http://winswitch.org/gpg.asc | apt-key add -
-RUN echo "deb http://winswitch.org/ trusty main" > /etc/apt/sources.list.d/xpra.list
-RUN apt-get update
-
 # Installing the environment required: xserver, xdm, flux box, roc-filer and ssh
 RUN apt-get install -y xpra rox-filer openssh-server pwgen xserver-xephyr xdm fluxbox xvfb sudo
 
